@@ -1,5 +1,7 @@
 // Initialize app
-var myApp = new Framework7();
+var myApp = new Framework7({
+    material: true //enable Material theme
+});
 
 
 // If we need to use custom DOM library, let's save it to $$ variable:
@@ -20,10 +22,15 @@ $$(document).on('deviceready', function() {
 // Now we need to run the code that will be executed only for About page.
 
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
-myApp.onPageInit('about', function (page) {
+// myApp.onPageInit('about', function (page) {
     // Do something here for "about" page
 
-})
+// })
+
+// myApp.onPageInit('login-screen', function (page) {
+    // Do something here for "about" page
+
+// })
 
 // Option 2. Using one 'pageInit' event handler for all pages:
 // $$(document).on('pageInit', function (e) {
@@ -37,7 +44,7 @@ myApp.onPageInit('about', function (page) {
 // })
 
 // Option 2. Using live 'pageInit' event handlers for each page
-$$(document).on('pageInit', '.page[data-page="about"]', function (e) {
+// $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
-    myApp.alert('Here comes About page');
-})
+    // myApp.alert('Here comes About page');
+// })

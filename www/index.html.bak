@@ -27,8 +27,8 @@
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
 
-    <link rel="stylesheet" href="lib/framework7/css/framework7.material.min.css">
-    <link rel="stylesheet" href="lib/framework7/css/framework7.material.colors.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
+    <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -42,10 +42,7 @@
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-reveal">
         <div class="content-block">
-            <!-- <p>Left panel content goes here</p> -->
-            <p><a href="login.html" class="item-link list-button">Login</a></p>
-            <p><a href="about.html" class="item-link list-button">About</a></p>
-            <p><a href="truck.html" class="item-link list-button">Truck</a></p>
+            <p>Left panel content goes here</p>
         </div>
     </div>
 
@@ -57,7 +54,7 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">Surya Transport</div>
+                    <div class="center sliding">Awesome App</div>
                     <div class="right">
                         <!--
                           Right link contains only icon - additional "icon-only" class
@@ -68,44 +65,16 @@
                 </div>
             </div>
             <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-            <div class="pages navbar-fixed">
-            <!-- <div class="pages navbar-through toolbar-through"> -->
+            <div class="pages navbar-through toolbar-through">
                 <!-- Page, "data-page" contains page name -->
                 <div data-page="index" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
-                        <div class="card">
-                            <div class="card-header">Card header</div>
-                            <div class="card-content card-content-padding">Card with header and footer. Card headers are used to display card titles and footers for additional information or just for custom actions.</div>
-                            <div class="card-footer">Card Footer</div>
-                        </div>
-                        <div class="card demo-facebook-card">
-                            <div class="card-header">
-                                <div class="demo-facebook-avatar"><img src="http://lorempixel.com/68/68/people/1/" width="34" height="34"/></div>
-                                <div class="demo-facebook-name">John Doe</div>
-                                <div class="demo-facebook-date">Monday at 3:47 PM</div>
-                            </div>
-                            <div class="card-content"> <img src="http://lorempixel.com/1000/700/nature/8/" width="100%"/></div>
-                            <div class="card-footer"><a href="#" class="link">Like</a><a href="#" class="link">Comment</a><a href="#" class="link">Share</a></div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">Card header</div>
-                            <div class="card-content card-content-padding">Card with header and footer. Card headers are used to display card titles and footers for additional information or just for custom actions.</div>
-                            <div class="card-footer">Card Footer</div>
-                        </div>
-
-
-                        <!-- <div class="content-block"> -->
-                            <!-- <p>Page content goes here MAF</p> -->
+                        <div class="content-block">
+                            <p>Page content goes here MAF</p>
                             <!-- Link to another page -->
-                            <!-- <div class="block"> -->
-                                <!-- <div class="row"> -->
-                                    <!-- <a class="button button-fill" href="login.html">Login</a> -->
-                                    <!-- <a class="button button-fill" href="about.html">About</a> -->
-                                    <!-- <a class="button button-fill" href="about.html">Truck</a> -->
-                                <!-- </div> -->
-                            <!-- </div> -->
-                        <!-- </div> -->
+                            <a href="about.html">About app</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,9 +82,8 @@
             <div class="toolbar">
                 <div class="toolbar-inner">
                     <!-- Toolbar links -->
-                    <a href="index.html" class="link">Home</a>
-                    <a href="about.html" class="link">About</a>
-                    <a href="truck.html" class="link">Truck</a>
+                    <a href="#" class="link">Link 1</a>
+                    <a href="#" class="link">Link 2</a>
                 </div>
             </div>
         </div>
