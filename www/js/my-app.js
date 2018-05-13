@@ -10,7 +10,7 @@ var mainView = myApp.addView('.view-main', {
 
 var wrongLogin = false; // false at the beginning
 var loggedIn = localStorage.loggedIn; // loggedIn connected to localStorage
-var loggedIn = true;
+var loggedIn = false;
 function loginModal() { // naming the function
     var modalText = wrongLogin ? 'Wrong username or password' : 'Login with username and password'; // modalText if values not correct and default modalText
     myApp.modalLogin(modalText, function(username, password){ // calling modalLogon
