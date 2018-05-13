@@ -1,50 +1,47 @@
-// Initialize app
-var myApp = new Framework7({
-    material: true //enable Material theme
+var myApp = new Framework7({ // Options
+    modalTitle: 'Security Check', // Title of all Modals
+    onAjaxStart: function (xhr) { myApp.showPreloader();}, // Loading Spinner
+    onAjaxComplete: function (xhr) { myApp.hidePreloader();}, // ^
 });
-
-
-// If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
-
-// Add view
 var mainView = myApp.addView('.view-main', {
-    // Because we want to use dynamic navbar, we need to enable it for this view:
     dynamicNavbar: true
 });
 
-// Handle Cordova Device Ready Event
-$$(document).on('deviceready', function() {
-    console.log("Device is ready!");
+var wrongLogin = false; // false at the beginning
+var loggedIn = localStorage.loggedIn; // loggedIn connected to localStorage
+function loginModal() { // naming the function
+    var modalText = wrongLogin ? 'Wrong username or password' : 'Login with username and password'; // modalText if values not correct and default modalText
+    myApp.modalLogin(modalText, function(username, password){ // calling modalLogon
+        myApp.showIndicator(); // show Loading Spinner
+        $$.post(
+            'http://127.0.0.1/test/framework7/check-login.php', // path to your PHP Login Check
+            {username: username, password: password}, // passing the values of entered username and password
+            function (response) { // function on response
+                myApp.hideIndicator(); // hide Spinner
+                // if (response === 1) {
+                if (1 === 1) {
+                    localStorage.loggedIn = 'true';
+					mainView.router.loadPage('protected.html');
+					// if credentials are correct "1" will be the response
+					// set localStorage.loggedIn to "true" because everything was correct
+					// then load the page "protected.html" (This is the insecure part)
+                }
+                else {
+                    wrongLogin = true;
+                    loginModal();
+					// if credentials were wrong, set wrongLogin to true (this will change our modalText) and open loginModal again
+                }
+            }
+        );
+    });
+}
+$$('.login-modal').on('click', function () { // if click on class "login-modal" (our button)...
+    if (loggedIn) { // and if loggedIn is set...
+		mainView.router.loadPage('protected.html') // ...load protected.html
+    }
+    else { // if loggedIn is not set
+        wrongLogin = false, // because we didn't made something wrong
+        loginModal(); // open our loginModal
+    }
 });
-
-
-// Now we need to run the code that will be executed only for About page.
-
-// Option 1. Using page callback for page (for "about" page in this case) (recommended way):
-// myApp.onPageInit('about', function (page) {
-    // Do something here for "about" page
-
-// })
-
-// myApp.onPageInit('login-screen', function (page) {
-    // Do something here for "about" page
-
-// })
-
-// Option 2. Using one 'pageInit' event handler for all pages:
-// $$(document).on('pageInit', function (e) {
-    // Get page data from event data
-    // var page = e.detail.page;
-
-    // if (page.name === 'about') {
-        // Following code will be executed for page with data-page attribute equal to "about"
-        // myApp.alert('Here comes About page');
-    // }
-// })
-
-// Option 2. Using live 'pageInit' event handlers for each page
-// $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
-    // Following code will be executed for page with data-page attribute equal to "about"
-    // myApp.alert('Here comes About page');
-// })
