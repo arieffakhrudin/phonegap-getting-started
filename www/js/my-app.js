@@ -13,7 +13,7 @@ var loggedIn = localStorage.loggedIn; // loggedIn connected to localStorage
 function loginModal() { // naming the function
     var modalText = wrongLogin ? 'Wrong username or password' : 'Login with username and password'; // modalText if values not correct and default modalText
     myApp.modalLogin(modalText, function(username, password){ // calling modalLogon
-        myApp.showIndicator(); // show Loading Spinner
+        // myApp.showIndicator(); // show Loading Spinner
         /*
         $$.post(
             'http://127.0.0.1/test/framework7/check-login.php', // path to your PHP Login Check
